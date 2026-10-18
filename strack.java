@@ -72,8 +72,7 @@ public class strack {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                System.out.println(
-                        "\n================ STUDENT PROFILE ==================\n" +
+                System.out.println("\n================ STUDENT PROFILE ==================\n" +
                                 "ID: " + rs.getInt("student_id") + "\n" +
                                 "Admission No: " + rs.getString("admission_num") + "\n" +
                                 "Name: " + rs.getString("first_name") + " " + rs.getString("last_name") + "\n" +
