@@ -14,7 +14,7 @@ public class strack {
             while (choice != 4) {
                 try {
                     System.out.println(
-                            "\n=== Centralized HEI Student Activity Platform ===\n1. Student Access (View Records)\n2. Teacher Access (Update Attendance & Marks)\n3. Admin Access (Add Student or Teacher)\n4. Logout (Exit Application)\nSelect Role (1-4): ");
+                            "\n=== Centralized HEI Student Activity Platform ===\n1. Student Access (View Records)\n2. Teacher Access (Update Attendance & Marks)\n3. Admin Access (Add Student or Teacher)\n4. Exit Application\nSelect Role (1-4): ");
                     choice = sc.nextInt();
                     if (choice == 1) {
                         StudentAccess(conn, sc);
@@ -24,6 +24,9 @@ public class strack {
                         break;
                     } else if (choice == 3) {
                         AdminAccess(conn, sc);
+                        break;
+                    } else if (choice == 4) {
+                        System.out.println("Exiting application. Goodbye!");
                         break;
                     } else {
                         System.out.println("Invalid option selected.");
@@ -391,7 +394,7 @@ public class strack {
                     System.out.println("\n--- Admin Dashboard ---");
                     System.out.println("1. Manage Student Records");
                     System.out.println("2. Manage Staff Records");
-                    System.out.println("3. Back to Main Menu");
+                    System.out.println("3. Logout");
                     System.out.print("Select choice (1-3): ");
 
                     adminChoice = sc.nextInt();
@@ -428,7 +431,7 @@ public class strack {
             System.out.println("2. View All Students");
             System.out.println("3. Modify Student Record");
             System.out.println("4. Delete Student Record");
-            System.out.println("5. Logout");
+            System.out.println("5. Back to Admin Dashboards");
             System.out.print("Choice (1-5): ");
             choice = sc.nextInt();
             sc.nextLine(); // clear buffer
