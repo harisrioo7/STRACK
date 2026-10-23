@@ -16,26 +16,17 @@ public class strack {
                     System.out.println(
                             "\n=== Centralized HEI Student Activity Platform ===\n1. Student Access (View Records)\n2. Teacher Access (Update Attendance & Marks)\n3. Admin Access (Add Student or Teacher)\n4. Logout (Exit Application)\nSelect Role (1-4): ");
                     choice = sc.nextInt();
-                    switch (choice) {
-                        case 1: {
-                            StudentAccess(conn, sc);
-                            break;
-                        }
-                        case 2: {
-                            TeacherAccess(conn, sc);
-                            break;
-                        }
-                        case 3: {
-                            AdminAccess(conn, sc);
-                            break;
-                        }
-                        case 4: {
-                            System.out.println("Logging out...");
-                            break;
-                        }
-                        default: {
-                            System.out.println("Invalid option selected.");
-                        }
+                    if (choice == 1) {
+                        StudentAccess(conn, sc);
+                        break;
+                    } else if (choice == 2) {
+                        TeacherAccess(conn, sc);
+                        break;
+                    } else if (choice == 3) {
+                        AdminAccess(conn, sc);
+                        break;
+                    } else {
+                        System.out.println("Invalid option selected.");
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 and 4.");
@@ -44,7 +35,7 @@ public class strack {
             }
             conn.close();
         } catch (Exception e) {
-            System.out.println("Error occurred while connecting to the database.\n"+e.getMessage());
+            System.out.println("Error occurred while connecting to the database.\n" + e.getMessage());
         } finally {
             System.out.println("Exiting application. Goodbye!");
         }
@@ -72,7 +63,8 @@ public class strack {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                System.out.println("\n================ STUDENT PROFILE ==================\n" +
+                System.out.println(
+                        "\n================ STUDENT PROFILE ==================\n" +
                                 "ID: " + rs.getInt("student_id") + "\n" +
                                 "Admission No: " + rs.getString("admission_num") + "\n" +
                                 "Name: " + rs.getString("first_name") + " " + rs.getString("last_name") + "\n" +
@@ -147,7 +139,7 @@ public class strack {
                     System.out.println("4. Update Student Attendance");
                     System.out.println("5. Update Student Disciplinary Flag");
                     System.out.println("6. Update Half Yearly / Annual Marks");
-                    System.out.println("7. Back to Main Menu");
+                    System.out.println("7. Logout");
                     System.out.print("Select an option (1-7): ");
 
                     teacherChoice = sc.nextInt();
@@ -436,7 +428,7 @@ public class strack {
             System.out.println("2. View All Students");
             System.out.println("3. Modify Student Record");
             System.out.println("4. Delete Student Record");
-            System.out.println("5. Back to Admin Dashboard");
+            System.out.println("5. Logout");
             System.out.print("Choice (1-5): ");
             choice = sc.nextInt();
             sc.nextLine(); // clear buffer
