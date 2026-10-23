@@ -25,9 +25,6 @@ public class strack {
                     } else if (choice == 3) {
                         AdminAccess(conn, sc);
                         break;
-                    } else if (choice == 4) {
-                        System.out.println("Exiting application. Goodbye!");
-                        break;
                     } else {
                         System.out.println("Invalid option selected.");
                     }
